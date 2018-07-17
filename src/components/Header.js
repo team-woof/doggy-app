@@ -4,7 +4,7 @@ export class Header extends Component {
   render() {
     return (
       <header>
-        <div>Header for doggy</div>
+        <div>Doggy dating App</div>
       </header>
     );
   }

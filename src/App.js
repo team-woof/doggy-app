@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import HomeRoute from "./routes/HomeRoute";
+import HomeContainer from "./Containers/HomeContainer";
 import { Header } from "./components/Header";
+import SearchContainer from "./Containers/SearchContainer"
 
 class App extends React.Component {
   render() {
@@ -10,7 +11,8 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/" render={() => <HomeRoute />} />
+          <Route exact path="/" render={() => <HomeContainer />} />
+          <Route exact path='/search' render={() => <SearchContainer/>}/>
         </Switch>
       </div>
     );

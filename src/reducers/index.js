@@ -1,7 +1,10 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import { homeReducer } from "./homeReducer";
+import { homeReducer } from './homeReducer';
+import { fetchDefaults } from './fetchDefaults';
 
 export default combineReducers({
-  homeReducer
+  homeReducer,
+  fetchDefaults
 });
+

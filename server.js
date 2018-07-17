@@ -113,6 +113,14 @@ app.get('/api/query', function(req, res) {
   }
 });
 
+//resume this tomorrow
+app.get('/api/breedlocation', function(req, res) {
+  const breed = req.query.breed;
+  const location = req.query.location;
+
+  res.json(req.query);
+});
+
 app.get('/api/locations', function(req, res) {
   if (getLocations()) {
     res.json(getLocations());

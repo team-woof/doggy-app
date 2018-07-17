@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 import Search from '../components/Search';
-import { fetchDefaultsAction } from '../actions/actions';
+import { fetchDefaultsAction, searchButtonResult } from '../actions/actions';
 
 const mapStateToProps = reduxState => {
   return {
-    storeData: reduxState.fetchDefaults
+    storeData: reduxState.fetchDefaults,
+    searchresult: reduxState.searchResult
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    data: () => dispatch(fetchDefaultsAction())
+    fetchDefaults: () => dispatch(fetchDefaultsAction()),
+    onSubmit: (breed, location) => dispatch(searchButtonResult(breed, location))
   };
 };
 

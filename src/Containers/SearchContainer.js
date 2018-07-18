@@ -5,7 +5,7 @@ import { fetchDefaultsAction, searchButtonResult } from '../actions/actions';
 const mapStateToProps = reduxState => {
   return {
     storeData: reduxState.fetchDefaults,
-    searchresult: reduxState.searchResult
+    searchResult: reduxState.searchResult
   };
 };
 

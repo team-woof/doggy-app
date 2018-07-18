@@ -39,24 +39,27 @@ class Search extends React.Component {
 
   render() {
     return (
-
       <div className="search">
         <form className="search__form" onSubmit={this.onSubmit}>
           <div className="custom-select">
-            <select className="search__select" onChange={event => this.updateBreed(event)}>
-              <option disabled selected>
-                Select Breed
-            </option>
+            <select
+              className="search__select"
+              defaultValue="Select Breed"
+              onChange={event => this.updateBreed(event)}
+            >
+              <option disabled>Select Breed</option>
               {Object.entries(this.props.storeData.breeds).map(
                 ([breed, index]) => <option key={index}>{breed}</option>
               )}
             </select>
           </div>
           <div className="custom-select">
-            <select className="search__select" onChange={event => this.updateLocation(event)}>
-              <option disabled selected>
-                Select Location
-            </option>
+            <select
+              className="search__select"
+              defaultValue="Select Location"
+              onChange={event => this.updateLocation(event)}
+            >
+              <option disabled>Select Location</option>
               {Object.entries(this.props.storeData.location).map(
                 ([location, index]) => <option key={index}>{location}</option>
               )}

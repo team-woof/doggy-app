@@ -7,8 +7,9 @@ const {
   filterBreed,
   getLocations,
   getBreeds,
+  filterByQuery,
   filterLocation
-} = require('./dogDatabase');
+} = require('./database/database');
 
 app.use(bodyParser.json());
 app.use('/static', express.static(__dirname + '/static'));
@@ -34,17 +35,10 @@ app.get('/api/query', function(req, res) {
   }
 });
 
-//resume this tomorrow
+//r http://127.0.0.1:8080/api/breedlocation?breed=Labrador&location=london
 app.get('/api/breedlocation', function(req, res) {
-  const breed = req.query.breed;
-  const location = req.query.location;
-  const resultBreed = filterBreed(breed);
-  const resultLocation = filterLocation(location);
-  const result = Object.assign({}, ...resultBreed, ...resultLocation);
-
-  res.json({ result });
-
-  // res.json(req.query);
+  const { breed, location } = req.query;
+  res.json(filterByQuery(breed, location));
 });
 
 app.get('/api/locations', function(req, res) {

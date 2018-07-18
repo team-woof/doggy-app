@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../static/styles/components/search.scss'
 
 import { fetchDefaultsAction } from '../actions/actions';
 

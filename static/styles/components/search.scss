@@ -1,0 +1,90 @@
+// Search styles for Homepage
+.home__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+
+    .search {
+        width: 420px;
+        max-width: 100%;
+    }
+
+    .search__select {
+        width: 100%;
+        max-width: 100%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    .search__button{
+        width: 100%;
+        padding: 9px 10px 10px 10px;
+        border: none;
+        font-size: 13px;
+        background-color: var(--video-overlay-color);
+        color:white;
+        &:hover{
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+}
+
+// Search styles for results page
+
+// global
+.custom-select {
+    background-color: #fff;
+    border: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 35px;
+    position: relative;
+    margin-bottom: 10px;
+    &:hover{
+        cursor: pointer;
+        opacity: .6;
+    }
+
+    &:after {
+        content: "▾";
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color:  var(--video-overlay-color);
+    }
+ 
+    select {
+        padding: 8px;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        color: var(--video-overlay-color);
+        font-size: 0.8rem;
+    
+        &:focus {
+            border: 0;
+            box-shadow: none !important;
+        }
+ 
+        option {
+            width: 100%;
+        }
+    } 
+}

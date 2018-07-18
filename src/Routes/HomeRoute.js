@@ -5,9 +5,9 @@ import SearchContainer from '../Containers/SearchContainer';
 class HomeRoute extends React.Component {
   render() {
     return (
-      <div class="home">
+      <div className="home">
         <HomeContainer />
-        <div class="home__search">
+        <div className="home__search">
           <SearchContainer />
         </div>
       </div>

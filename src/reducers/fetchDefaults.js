@@ -1,7 +1,7 @@
 export function fetchDefaults(
   state = {
-    breeds: [],
-    location: []
+    breeds: {},
+    location: {}
   },
   action
 ) {

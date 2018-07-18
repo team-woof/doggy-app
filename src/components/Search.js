@@ -39,28 +39,31 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <select onChange={event => this.updateBreed(event)}>
-            <option disabled defaultValue>
-              Select Breed
-            </option>
-            {Object.entries(this.props.storeData.breeds).map(
-              ([breed, index]) => <option key={index}>{breed}</option>
-            )}
-          </select>
-          <select onChange={event => this.updateLocation(event)}>
-            <option disabled defaultValue>
-              Select Location
-            </option>
-            {Object.entries(this.props.storeData.location).map(
-              ([location, index]) => <option key={index}>{location}</option>
-            )}
-          </select>
 
-          <button>Search</button>
+      <div className="search">
+        <form className="search__form" onSubmit={this.onSubmit}>
+          <div className="custom-select">
+            <select className="search__select" onChange={event => this.updateBreed(event)}>
+              <option disabled selected>
+                Select Breed
+            </option>
+              {Object.entries(this.props.storeData.breeds).map(
+                ([breed, index]) => <option key={index}>{breed}</option>
+              )}
+            </select>
+          </div>
+          <div className="custom-select">
+            <select className="search__select" onChange={event => this.updateLocation(event)}>
+              <option disabled selected>
+                Select Location
+            </option>
+              {Object.entries(this.props.storeData.location).map(
+                ([location, index]) => <option key={index}>{location}</option>
+              )}
+            </select>
+          </div>
+          <button className="search__button">Search</button>
         </form>
-        Search bar
       </div>
     );
   }

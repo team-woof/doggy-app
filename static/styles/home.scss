@@ -12,12 +12,20 @@
     height: 100%;
     margin: 0;
 
-    .search__select {
+
+    .search {
         width: 420px;
+        max-width: 100%;
+    }
+
+    .search__select {
+        width: 100%;
+        max-width: 100%;
         &:hover{
             cursor: pointer;
         }
     }
+
     .search__button{
         width: 100%;
         padding: 9px 10px 10px 10px;
@@ -46,8 +54,16 @@
         position: absolute;
         left: 0;
         top: 0;
-        max-width: 100%;
+        // max-height: 100%;
         z-index: 1;
+        transform: translate(-50%);
+        z-index: 1;
+
+        @media(min-width: 480px) {
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(0);
+        }
     }
 
     .video__overlay {

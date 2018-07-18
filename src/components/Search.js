@@ -42,7 +42,7 @@ class Search extends React.Component {
     console.log(this.props.storeData);
     return (
       <div className="search">
-        <form onSubmit={this.onSubmit}>
+        <form className="search__form" onSubmit={this.onSubmit}>
           <div className="custom-select">
             <select className="search__select" onChange={event => this.updateBreed(event)}>
               <option disabled selected>

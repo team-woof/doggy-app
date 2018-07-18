@@ -1,0 +1,44 @@
+.custom-select {
+    background-color: #fff;
+    border: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 35px;
+    position: relative;
+    margin-bottom: 10px;
+    &:hover{
+        cursor: pointer;
+        opacity: .6;
+    }
+
+    &:after {
+        content: "▾";
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        color:  var(--video-overlay-color);
+    }
+ 
+    select {
+        padding: 8px;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        color: var(--video-overlay-color);
+        font-size: 0.8rem;
+    
+        &:focus {
+            border: 0;
+            box-shadow: none !important;
+        }
+ 
+        option {
+            width: 100%;
+        }
+    } 
+}

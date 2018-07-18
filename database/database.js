@@ -42,7 +42,6 @@ function dogs(_dogList) {
     },
 
     filterByQuery(breedToFilter, locationToFilter) {
-      console.log({ breedToFilter, locationToFilter });
       return Object.values(dogsList)
         .filter(dog => {
           return dog.breed === breedToFilter;

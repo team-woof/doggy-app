@@ -85,13 +85,6 @@ function dogs() {
       return breeds;
     },
 
-    filterLocation(locationToFilter) {
-      const location = Object.keys(dogsList)
-        .map(item => dogsList[item])
-        .filter(dog => dog.location === locationToFilter);
-      return location;
-    },
-
     getLocations() {
       const result = Object.keys(dogsList).reduce((acc, item, index) => {
         const currentLocation = dogsList[item].location;
@@ -108,6 +101,13 @@ function dogs() {
         return acc;
       }, {});
       return result;
+    },
+
+    filterLocation(locationToFilter) {
+      const location = Object.keys(dogsList)
+        .map(item => dogsList[item])
+        .filter(dog => dog.location === locationToFilter);
+      return location;
     }
   };
 }
@@ -127,5 +127,46 @@ describe('firsttest', function() {
 
   test('getBreeds', function() {
     expect(getBreeds()).toEqual({ Labrador: 3, Terrier: 1, Beagel: 2 });
+  });
+
+  test('filterLocation', function() {
+    expect(filterLocation('Shoreditch')).toEqual([
+      {
+        additionalInfo: 'Alergie to cat food',
+        age: '4',
+        breed: 'Labrador',
+        contact: {
+          ownerEmail: 'tom@gmail.com',
+          ownerName: 'Tom Doe',
+          ownerNumber: '07765432100'
+        },
+        description: 'very hairy',
+        hobbies: ['fetching', 'swimming', 'jumping'],
+        id: '1',
+        images: [],
+        location: 'Shoreditch',
+        name: 'Max',
+        personality: 'Nice and friendly',
+        sex: 'male'
+      },
+      {
+        additionalInfo: 'Alergie to cat food',
+        age: '4',
+        breed: 'Labrador',
+        contact: {
+          ownerEmail: 'tom@gmail.com',
+          ownerName: 'Tom Doe',
+          ownerNumber: '07765432100'
+        },
+        description: 'very hairy',
+        hobbies: ['fetching', 'swimming', 'jumping'],
+        id: '4',
+        images: [],
+        location: 'Shoreditch',
+        name: 'Trump',
+        personality: 'Nice and friendly',
+        sex: 'male'
+      }
+    ]);
   });
 });

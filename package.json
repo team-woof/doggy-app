@@ -41,5 +41,11 @@
     "build": "webpack --mode production",
     "server": "node server.js",
     "server:w": "nodemon server.js"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0"
   }
 }

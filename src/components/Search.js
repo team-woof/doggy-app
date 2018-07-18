@@ -41,28 +41,31 @@ class Search extends React.Component {
   render() {
     console.log(this.props.storeData);
     return (
-      <div>
+      <div className="search">
         <form onSubmit={this.onSubmit}>
-          <select onChange={event => this.updateBreed(event)}>
-            <option disabled selected>
-              Select Breed
+          <div className="custom-select">
+            <select className="search__select" onChange={event => this.updateBreed(event)}>
+              <option disabled selected>
+                Select Breed
             </option>
-            {this.props.storeData.breeds.map(breed => {
-              return <option key={breed}>{breed}</option>;
-            })}
-          </select>
-          <select onChange={event => this.updateLocation(event)}>
-            <option disabled selected>
-              Select Location
-            </option>
-            {this.props.storeData.location.map(location => {
-              return <option key={location}>{location}</option>;
-            })}
-          </select>
+              {this.props.storeData.breeds.map(breed => {
+                return <option key={breed}>{breed}</option>;
+              })}
+            </select>
+          </div>
 
-          <button>Search</button>
+          <div className="custom-select">
+            <select className="search__select" onChange={event => this.updateLocation(event)}>
+              <option disabled selected>
+                Select Location
+            </option>
+              {this.props.storeData.location.map(location => {
+                return <option key={location}>{location}</option>;
+              })}
+            </select>
+          </div>
+          <button className="search__button">Search</button>
         </form>
-        Search bar
       </div>
     );
   }

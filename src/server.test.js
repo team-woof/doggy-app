@@ -92,15 +92,6 @@ function dogs() {
       return location;
     },
 
-    getBreeds() {
-      const breeds = Object.keys(dogsList).reduce((acc, item, index) => {
-        const result = dogsList[item].breed;
-        return [...acc, result];
-      }, []);
-
-      return breeds;
-    },
-
     getLocations() {
       const result = Object.keys(dogsList).reduce((acc, item, index) => {
         const currentLocation = dogsList[item].location;
@@ -108,6 +99,15 @@ function dogs() {
         return acc;
       }, {});
       return result;
+    },
+
+    getBreeds() {
+      const breeds = Object.keys(dogsList).reduce((acc, item, index) => {
+        const result = dogsList[item].breed;
+        return [...acc, result];
+      }, []);
+
+      return breeds;
     }
   };
 }
@@ -123,5 +123,9 @@ const {
 describe('firsttest', function() {
   test('location duplicate', () => {
     expect(getLocations()).toEqual({ Croydon: 1, Liverpool: 2, Shoreditch: 3 });
+  });
+
+  test('getBreeds', function() {
+    expect(getBreeds()).toBe({ Labrador: 1, Terrier: 2, Beagel: 3 });
   });
 });

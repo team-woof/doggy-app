@@ -46,7 +46,7 @@ class Search extends React.Component {
               Select Breed
             </option>
             {Object.entries(this.props.storeData.breeds).map(
-              ([breed, index]) => <option key={index}>{breed}</option>
+              ([breed, index]) => <option key={breed}>{breed}</option>
             )}
           </select>
           <select onChange={event => this.updateLocation(event)}>
@@ -54,7 +54,7 @@ class Search extends React.Component {
               Select Location
             </option>
             {Object.entries(this.props.storeData.location).map(
-              ([location, index]) => <option key={index}>{location}</option>
+              ([location, index]) => <option key={location}>{location}</option>
             )}
           </select>
 

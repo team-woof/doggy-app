@@ -64,6 +64,24 @@ function dogs() {
         ownerEmail: 'julian@gmail.com'
       },
       additionalInfo: 'Alergie to cat food'
+    },
+    '4': {
+      id: '4',
+      name: 'Trump',
+      age: '4',
+      sex: 'male',
+      breed: 'Labrador',
+      hobbies: ['fetching', 'swimming', 'jumping'],
+      description: 'very hairy',
+      images: [],
+      personality: 'Nice and friendly',
+      location: 'Shoreditch',
+      contact: {
+        ownerName: 'Tom Doe',
+        ownerNumber: '07765432100',
+        ownerEmail: 'tom@gmail.com'
+      },
+      additionalInfo: 'Alergie to cat food'
     }
   };
 
@@ -77,12 +95,29 @@ function dogs() {
         .filter(dog => dog.breed === breedToFilter);
       return breeds;
     },
+
+    filterLocation(locationToFilter) {
+      const location = Object.keys(dogsList)
+        .map(item => dogsList[item])
+        .filter(dog => dog.location === locationToFilter);
+      return location;
+    },
+
     getBreeds() {
       const breeds = Object.keys(dogsList).reduce((acc, item, index) => {
         const result = dogsList[item].breed;
         return [...acc, result];
       }, []);
-      return breeds;
+
+      const removeDuplicates = arrX => {
+        return arrX.filter((elem, index, arr) => {
+          return arr.indexOf(elem) === index;
+        });
+      };
+
+      const resultBreeds = removeDuplicates(breeds);
+
+      return resultBreeds;
     },
     getLocations() {
       const location = Object.keys(dogsList).reduce((acc, item, index) => {
@@ -94,7 +129,13 @@ function dogs() {
   };
 }
 
-const { getDogs, filterBreed, getLocations, getBreeds } = dogs();
+const {
+  getDogs,
+  filterBreed,
+  getLocations,
+  getBreeds,
+  filterLocation
+} = dogs();
 
 app.get('/api/dogs', function(req, res) {
   if (getDogs()) {
@@ -117,8 +158,13 @@ app.get('/api/query', function(req, res) {
 app.get('/api/breedlocation', function(req, res) {
   const breed = req.query.breed;
   const location = req.query.location;
+  const resultBreed = filterBreed(breed);
+  const resultLocation = filterLocation(location);
+  const result = Object.assign({}, ...resultBreed, ...resultLocation);
 
-  res.json(req.query);
+  res.json({ result });
+
+  // res.json(req.query);
 });
 
 app.get('/api/locations', function(req, res) {

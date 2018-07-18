@@ -22,7 +22,6 @@ class Search extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(this.state.breed, this.state.location);
-    console.log(this.state.breed, this.state.location);
   }
 
   updateBreed(event) {
@@ -39,24 +38,23 @@ class Search extends React.Component {
   }
 
   render() {
-    console.log(this.props.storeData);
     return (
       <div>
         <form onSubmit={this.onSubmit}>
           <select onChange={event => this.updateBreed(event)}>
-            <option disabled selected>
+            <option disabled defaultValue>
               Select Breed
             </option>
-            {this.props.storeData.breeds.map(breed => {
-              return <option key={breed}>{breed}</option>;
+            {this.props.storeData.breeds.map((breed, index) => {
+              return <option key={index}>{breed}</option>;
             })}
           </select>
           <select onChange={event => this.updateLocation(event)}>
-            <option disabled selected>
+            <option disabled defaultValue>
               Select Location
             </option>
-            {this.props.storeData.location.map(location => {
-              return <option key={location}>{location}</option>;
+            {this.props.storeData.location.map((location, index) => {
+              return <option key={index}>{location}</option>;
             })}
           </select>
 

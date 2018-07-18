@@ -102,12 +102,12 @@ function dogs() {
     },
 
     getBreeds() {
-      const breeds = Object.keys(dogsList).reduce((acc, item, index) => {
-        const result = dogsList[item].breed;
-        return [...acc, result];
-      }, []);
-
-      return breeds;
+      const result = Object.keys(dogsList).reduce((acc, item, index) => {
+        const currentBreed = dogsList[item].breed;
+        acc[currentBreed] = index;
+        return acc;
+      }, {});
+      return result;
     }
   };
 }
@@ -126,6 +126,6 @@ describe('firsttest', function() {
   });
 
   test('getBreeds', function() {
-    expect(getBreeds()).toBe({ Labrador: 1, Terrier: 2, Beagel: 3 });
+    expect(getBreeds()).toEqual({ Labrador: 3, Terrier: 1, Beagel: 2 });
   });
 });

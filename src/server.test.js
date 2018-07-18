@@ -78,12 +78,6 @@ function dogs() {
     getDogs() {
       return dogsList;
     },
-    filterBreed(breedToFilter) {
-      const breeds = Object.keys(dogsList)
-        .map(item => dogsList[item])
-        .filter(dog => dog.breed === breedToFilter);
-      return breeds;
-    },
 
     getLocations() {
       const result = Object.keys(dogsList).reduce((acc, item, index) => {
@@ -108,6 +102,13 @@ function dogs() {
         .map(item => dogsList[item])
         .filter(dog => dog.location === locationToFilter);
       return location;
+    },
+
+    filterBreed(breedToFilter) {
+      const breeds = Object.keys(dogsList)
+        .map(item => dogsList[item])
+        .filter(dog => dog.breed === breedToFilter);
+      return breeds;
     }
   };
 }
@@ -166,6 +167,28 @@ describe('firsttest', function() {
         name: 'Trump',
         personality: 'Nice and friendly',
         sex: 'male'
+      }
+    ]);
+  });
+  test('filterBreed', function() {
+    expect(filterBreed('Terrier')).toEqual([
+      {
+        additionalInfo: 'Alergie to cat food',
+        age: '2',
+        breed: 'Terrier',
+        contact: {
+          ownerEmail: 'john@gmail.com',
+          ownerName: 'John Doe',
+          ownerNumber: '07765432100'
+        },
+        description: 'barks a lot',
+        hobbies: ['sleeping', 'swimming', 'jumping'],
+        id: '2',
+        images: [],
+        location: 'Croydon',
+        name: 'Bella',
+        personality: 'Very aggresive',
+        sex: 'female'
       }
     ]);
   });

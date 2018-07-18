@@ -1,8 +1,13 @@
 :root {
-    --video-overlay-color: #d142f4;
+    --primary-color: #d142f4;
+    --secondary-color: #4e0660;
 
     --breakpoint-min: 480;
     --breakpoint-medium: 768px;
     --breakpoint-large: 920px;
     --breakpoint-xlarge: 1200px;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }

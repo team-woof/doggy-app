@@ -32,7 +32,7 @@
         padding: 9px 10px 10px 10px;
         border: none;
         font-size: 13px;
-        background-color: var(--video-overlay-color);
+        background-color: var(--primary-color);
         color:white;
         &:hover{
             cursor: pointer;
@@ -62,7 +62,7 @@
         position: absolute;
         right: 10px;
         top: 5px;
-        color:  var(--video-overlay-color);
+        color:  var(--primary-color);
     }
  
     select {
@@ -75,7 +75,7 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        color: var(--video-overlay-color);
+        color: var(--primary-color);
         font-size: 0.8rem;
     
         &:focus {

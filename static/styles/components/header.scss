@@ -1,10 +1,17 @@
 .main-header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
     position: relative;
-    z-index: 3;
+    z-index: 999;
+    
     text-align: center;
 
     @media(min-width: 920px){
         text-align: left;
+        flex-direction: row;
+        padding: 10px 20px;
     }
     
     .main-header__logo{
@@ -12,7 +19,7 @@
         color: white;
         font-size: 30px;
         @media(min-width: 480px){
-            font-size: 50px;
+            font-size: 45px;
         }
         
     }

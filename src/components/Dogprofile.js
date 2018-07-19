@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 export class Dogprofile extends Component {
   render() {
+    console.log(this.props.profileID);
     return (
       <div className="Dogprofile">
         <div className="Dogprofile__image">Dog picture</div>

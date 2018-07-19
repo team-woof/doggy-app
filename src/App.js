@@ -21,7 +21,11 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" render={() => <HomeRoute />} />
           <Route exact path="/search" render={() => <SearchContainer />} />
-          <Route exact path="/profile" render={() => <DogprofileRoute />} />
+          <Route
+            exact
+            path="/profile/:id"
+            render={({ match }) => <DogprofileRoute {...match} />}
+          />
           <Route exact path="/account" render={() => <AccountsRoute />} />
           <Route exact path="/about-us" render={() => <AboutUsRoute />} />
           <Route

@@ -4,10 +4,9 @@ import HomeContainer from "../Containers/HomeContainer";
 
 class DogprofileRoute extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div className="home">
-        <DogprofileContainer />
+        <DogprofileContainer profileID={this.props.params.id} />
       </div>
     );
   }

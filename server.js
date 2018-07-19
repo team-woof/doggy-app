@@ -14,10 +14,6 @@ const {
 app.use(bodyParser.json());
 app.use("/static", express.static(__dirname + "/static"));
 
-app.get("*", function(req, res) {
-  res.sendfile(__dirname + "/index.html");
-});
-
 app.get("/api/dogs", function(req, res) {
   if (getDogs()) {
     res.json(getDogs());
@@ -54,6 +50,10 @@ app.get("/api/getresultlist", function(req, res) {
     location: getLocations(),
     breeds: getBreeds()
   });
+});
+
+app.get("*", function(req, res) {
+  res.sendfile(__dirname + "/index.html");
 });
 
 app.listen(8080, function() {

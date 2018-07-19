@@ -6,7 +6,7 @@ import Header from "../components/Header";
 class AccountsRoute extends React.Component {
   render() {
     return (
-      <div>
+      <div className="accounts-wrapper">
         <Header />
         <AccountsContainer />
       </div>

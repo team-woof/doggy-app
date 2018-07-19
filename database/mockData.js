@@ -11,11 +11,11 @@ const dogsList = {
     personality: 'Nice and friendly',
     location: 'Shoreditch',
     contact: {
-      ownerName: 'Tom Doe',
-      ownerNumber: '07765432100',
-      ownerEmail: 'tom@gmail.com'
+      ownerName: "Tom Doe",
+      ownerNumber: "07765432100",
+      ownerEmail: "tom@gmail.com"
     },
-    additionalInfo: 'Alergie to cat food'
+    additionalInfo: "Alergie to cat food"
   },
   '2': {
     id: '2',
@@ -29,11 +29,11 @@ const dogsList = {
     personality: 'Very aggresive',
     location: 'Croydon',
     contact: {
-      ownerName: 'John Doe',
-      ownerNumber: '07765432100',
-      ownerEmail: 'john@gmail.com'
+      ownerName: "John Doe",
+      ownerNumber: "07765432100",
+      ownerEmail: "john@gmail.com"
     },
-    additionalInfo: 'Alergie to cat food'
+    additionalInfo: "Alergie to cat food"
   },
   '3': {
     id: '3',
@@ -47,11 +47,11 @@ const dogsList = {
     personality: 'Nice and friendly',
     location: 'Liverpool',
     contact: {
-      ownerName: 'Julian Doe',
-      ownerNumber: '07765432100',
-      ownerEmail: 'julian@gmail.com'
+      ownerName: "Julian Doe",
+      ownerNumber: "07765432100",
+      ownerEmail: "julian@gmail.com"
     },
-    additionalInfo: 'Alergie to cat food'
+    additionalInfo: "Alergie to cat food"
   },
   '4': {
     id: '4',
@@ -65,11 +65,11 @@ const dogsList = {
     personality: 'Nice and friendly',
     location: 'Shoreditch',
     contact: {
-      ownerName: 'Tom Doe',
-      ownerNumber: '07765432100',
-      ownerEmail: 'tom@gmail.com'
+      ownerName: "Tom Doe",
+      ownerNumber: "07765432100",
+      ownerEmail: "tom@gmail.com"
     },
-    additionalInfo: 'Alergie to cat food'
+    additionalInfo: "Alergie to cat food"
   }
 };
 

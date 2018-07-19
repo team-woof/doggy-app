@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import Header from "./Header";
+import Header from './Header';
+import '../../static/styles/components/Dogprofile.scss';
 
 // import styles
 
 export class Dogprofile extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return (
@@ -17,45 +18,44 @@ export class Dogprofile extends React.Component {
           </div>
 
           <div className="Dogprofile__information">
-            {
-              this.props.searchResults.length > 0
-                ? this.props.searchResults.map(result => {
+            {this.props.searchResults.length > 0
+              ? this.props.searchResults.map(result => {
                   if (result.id === this.props.profileId) {
-                    return <div key={result.name}>
-                      <img src={result.images} />
-                      <p>name: {result.name}</p>
-                      <p>age: {result.age}</p>
-                      <p>sex: {result.gender}</p>
-                      <p>breed: {result.breed}</p>
-                      <div>
-                        <h3>Hobbies</h3>
-                        <ul>
-                          {result.hobbies.map(hobby => {
-                            <li>{hobby}</li>
-                          }
-                          )}
-                        </ul>
+                    return (
+                      <div
+                        className="Dogprofile__img__container"
+                        key={result.name}
+                      >
+                        <img className="Dogprofile__img" src={result.images} />
+                        <div className="Dogprofile__details">
+                          <p>name: {result.name}</p>
+                          <p>age: {result.age}</p>
+                          <p>sex: {result.gender}</p>
+                          <p>breed: {result.breed}</p>
+                          <div>
+                            <h3>Hobbies</h3>
+                            <ul>
+                              {result.hobbies.map(hobby => {
+                                <li>{hobby}</li>;
+                              })}
+                            </ul>
+                          </div>
+                          <p>description: {result.description}</p>
+                          <p>personality: {result.personality}</p>
+                          <p>location: {result.location},</p>
+                          <p> contact: {result.contact.ownerName}</p>
+                          <p> contact: {result.contact.ownerNumber}</p>
+                          <p> contact: {result.contact.ownerEmail}</p>
+                          <p>additionalInfo: {result.additionalInfo}</p>
+                        </div>
                       </div>
-                      <p>description: {result.description}</p>
-                      <p>personality: {result.personality}</p>
-                      <p>location: {result.location},</p>
-                      <p> contact: {result.contact.ownerName}</p>
-                      <p> contact: {result.contact.ownerNumber}</p>
-                      <p> contact: {result.contact.ownerEmail}</p>
-                      <p>additionalInfo: {result.additionalInfo}</p>
-                    </div>
-
+                    );
                   }
                 })
-                : "No profile selected"
-
-
-            }
-
+              : 'No profile selected'}
           </div>
         </div>
       </div>
-
     );
   }
 }

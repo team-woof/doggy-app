@@ -19,11 +19,11 @@ export function searchButtonResult(breed, location) {
     const url = `/api/breedlocation?breed=${breed}&location=${location}`;
     fetch(url)
       .then(response => response.json())
-      .then(data => {
-        console.log('aaa', data);
+      .then(searchResults => {
+
         dispatch({
           type: 'GET_SEARCH_BUTTON_RESULTS',
-          data
+          searchResults
         });
       })
       .catch(error => console.log(error));

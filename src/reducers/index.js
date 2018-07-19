@@ -7,5 +7,5 @@ import { searchButtonResultReducer } from './searchButtonResultReducer';
 export default combineReducers({
   homeReducer,
   fetchDefaults,
-  searchResult:searchButtonResultReducer
+  searchResults: searchButtonResultReducer
 });

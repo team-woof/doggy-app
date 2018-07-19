@@ -12,8 +12,8 @@ class Result extends React.Component {
                     <div className="result-card__name"><strong>Name: </strong>{this.props.name}</div>
                     <div className="result-card__location"><strong>Location: </strong>{this.props.location}</div>
                     <div className="result-card__gender"><strong>Gender: </strong>{this.props.gender}</div>
-                    <button className="result-card__profile-button">Full Profile</button>
                 </div>
+                <button className="result-card__profile-button">Full Profile</button>
             </div>
         )
     }

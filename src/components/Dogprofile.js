@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// import 'styles coming soon'
+// import styles
 
 export class Dogprofile extends Component {
   render() {

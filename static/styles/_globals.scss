@@ -1,6 +1,7 @@
 :root {
     --primary-color: #d142f4;
     --secondary-color: #4e0660;
+    --tertiary-color: pink;
 
     --breakpoint-min: 480;
     --breakpoint-medium: 768px;
@@ -10,4 +11,5 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
 }

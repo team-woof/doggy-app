@@ -39,37 +39,40 @@ class Search extends React.Component {
   }
 
   render() {
+    console.log(this.props.storeData)
     return (
-      <div className="search">
-        <form className="search__form" onSubmit={this.onSubmit}>
-          <div className="custom-select">
-            <select
-              className="search__select"
-              defaultValue="Select Breed"
-              onChange={event => this.updateBreed(event)}
-            >
-              <option disabled>Select Breed</option>
-              {Object.entries(this.props.storeData.breeds).map(
-                ([breed, index]) => <option key={breed}>{breed}</option>
-              )}
-            </select>
-          </div>
-          <div className="custom-select">
-            <select
-              className="search__select"
-              defaultValue="Select Location"
-              onChange={event => this.updateLocation(event)}
-            >
-              <option disabled>Select Location</option>
-              {Object.entries(this.props.storeData.location).map(
-                ([location, index]) => (
-                  <option key={location}>{location}</option>
-                )
-              )}
-            </select>
-          </div>
-          <button className="search__button">Search</button>
-        </form>
+      <div className="search__container">
+        <div className="search">
+          <form className="search__form" onSubmit={this.onSubmit}>
+            <div className="custom-select">
+              <select
+                className="search__select"
+                defaultValue="Select Breed"
+                onChange={event => this.updateBreed(event)}
+              >
+                <option disabled>Select Breed</option>
+                {Object.entries(this.props.storeData.breeds).map(
+                  ([breed, index]) => <option key={breed}>{breed}</option>
+                )}
+              </select>
+            </div>
+            <div className="custom-select">
+              <select
+                className="search__select"
+                defaultValue="Select Location"
+                onChange={event => this.updateLocation(event)}
+              >
+                <option disabled>Select Location</option>
+                {Object.entries(this.props.storeData.location).map(
+                  ([location, index]) => (
+                    <option key={location}>{location}</option>
+                  )
+                )}
+              </select>
+            </div>
+            <button className="search__button">Search</button>
+          </form>
+        </div>
       </div>
     );
   }

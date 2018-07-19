@@ -1,3 +1,10 @@
+export function profileIdReceive(profileIdReceive) {
+  return {
+    type: 'PROFILE_ID_RECEIVE',
+    profileIdReceive
+  }
+}
+
 export function fetchDefaultsAction() {
   return function apiFetch(dispatch) {
     const url = `/api/getresultlist`;

@@ -1,34 +1,61 @@
-import React, { Component } from "react";
+import React from "react";
+
+import Header from "./Header";
 
 // import styles
 
-export class Dogprofile extends Component {
+export class Dogprofile extends React.Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
-    console.log(this.props.profileID);
     return (
       <div className="Dogprofile">
-        <div className="Dogprofile__image">Dog picture</div>
-
-        <div className="Dogprofile__information">
-          <p>name: 'Max'</p>
-          <p>age: '4'</p>
-          <p>sex: 'male'</p>
-          <p>breed: 'Labrador'</p>
-          <div>
-            <h3>Hobbies</h3>
-            <ul>
-              <li>fetching</li>
-              <li>swimming</li>
-              <li>jumping</li>
-            </ul>
+        <div className="search__results">
+          <div className="search-result__header">
+            <Header />
           </div>
-          <p>description: 'very hairy'</p>
-          <p>personality: 'Nice and friendly, loves ducks'</p>
-          <p>location: 'Shoreditch',</p>
-          <p> contact: ownerName: 'Tom Doe'</p>
-          <p>additionalInfo: 'Alergie to cat food'</p>
+
+          <div className="Dogprofile__information">
+            {
+              this.props.searchResults.length > 0
+                ? this.props.searchResults.map(result => {
+                  if (result.id === this.props.profileId) {
+                    return <div key={result.name}>
+                      <img src={result.images} />
+                      <p>name: {result.name}</p>
+                      <p>age: {result.age}</p>
+                      <p>sex: {result.gender}</p>
+                      <p>breed: {result.breed}</p>
+                      <div>
+                        <h3>Hobbies</h3>
+                        <ul>
+                          {result.hobbies.map(hobby => {
+                            <li>{hobby}</li>
+                          }
+                          )}
+                        </ul>
+                      </div>
+                      <p>description: {result.description}</p>
+                      <p>personality: {result.personality}</p>
+                      <p>location: {result.location},</p>
+                      <p> contact: {result.contact.ownerName}</p>
+                      <p> contact: {result.contact.ownerNumber}</p>
+                      <p> contact: {result.contact.ownerEmail}</p>
+                      <p>additionalInfo: {result.additionalInfo}</p>
+                    </div>
+
+                  }
+                })
+                : "No profile selected"
+
+
+            }
+
+          </div>
         </div>
       </div>
+
     );
   }
 }

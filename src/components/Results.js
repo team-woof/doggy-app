@@ -1,13 +1,34 @@
 import React from 'react';
-import Result from './result'
+import { Redirect } from 'react-router-dom';
 import { isArray } from 'util';
-
+import "../../static/styles/components/result.scss";
 
 class Results extends React.Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            redirect: false
+        };
+        this.onClickHandler = this.onClickHandler.bind(this);
+    }
+    setRedirect() {
+        this.setState({
+            redirect: true
+        })
+    }
+    renderRedirect() {
+        if (this.state.redirect) {
+            return <Redirect to='/profile' />
+        }
     }
 
+
+    onClickHandler(result) {
+        console.log("result", result)
+        this.props.profileId(result);
+        this.setRedirect();
+    }
 
     render() {
         return (
@@ -15,14 +36,18 @@ class Results extends React.Component {
                 {
                     isArray(this.props.searchResults)
                         ? this.props.searchResults.map(result => {
-                            return <Result
-                                key={result.name + result.id}
-                                img={result.images}
-                                name={result.name}
-                                location={result.location}
-                                gender={result.gender}
-                            />
-
+                            return <div key={result.name} className="result-card">
+                                {this.renderRedirect()}
+                                <div className="result-card__img-box">
+                                    <img className="result-card__img" src={result.images} alt={result.name} />
+                                </div>
+                                <div className="result-card__details">
+                                    <div className="result-card__name"><strong>Name: </strong>{result.name}</div>
+                                    <div className="result-card__location"><strong>Location: </strong>{result.location}</div>
+                                    <div className="result-card__gender"><strong>Gender: </strong>{result.gender}</div>
+                                </div>
+                                <button onClick={() => this.onClickHandler(result.id)} className="result-card__profile-button">Full Profile</button>
+                            </div>
                         })
                         : ""
                 }

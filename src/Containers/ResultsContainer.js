@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import Results from '../components/Results';
-// import { fetchDefaultsAction, searchButtonResult } from '../actions/actions';
+import { profileIdReceive } from '../actions/actions';
 
 const mapStateToProps = reduxState => {
     return {
-
         searchResults: reduxState.searchResults
     };
 };
@@ -12,7 +11,7 @@ const mapStateToProps = reduxState => {
 const mapDispatchToProps = dispatch => {
     return {
         // fetchDefaults: () => dispatch(fetchDefaultsAction()),
-        // onSubmit: (breed, location) => dispatch(searchButtonResult(breed, location))
+        profileId: id => dispatch(profileIdReceive(id))
     };
 };
 

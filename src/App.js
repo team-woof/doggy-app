@@ -10,6 +10,7 @@ import AccountsRoute from "./Routes/AccountsRoute";
 import ErrorRoute from "./Routes/ErrorRoute";
 import AboutUsRoute from "./Routes/AboutUsRoute";
 import MessagesRoute from "./Routes/MessagesRoute";
+import DogprofileContainer from "./Containers/DogprofileContainer";
 
 class App extends React.Component {
   render() {
@@ -30,7 +31,10 @@ class App extends React.Component {
             path="/account/messages"
             render={() => <MessagesRoute />}
           />
+          <Route exact path="/profile" render={() => <DogprofileContainer />} />
           <Route component={ErrorRoute} />
+
+
         </Switch>
       </div>
     );

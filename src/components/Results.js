@@ -11,12 +11,20 @@ class Results extends React.Component {
 
     render() {
         return (
-            <div>
-                {isArray(this.props.searchResults)
-                    ? this.props.searchResults.map(result => {
-                        console.log(result.breed);
-                    })
-                    : ""
+            <div className="results-container">
+                {
+                    isArray(this.props.searchResults)
+                        ? this.props.searchResults.map(result => {
+                            return <Result
+                                key={result.name + result.id}
+                                img={result.images}
+                                name={result.name}
+                                location={result.location}
+                                gender={result.gender}
+                            />
+
+                        })
+                        : ""
                 }
             </div>
         )

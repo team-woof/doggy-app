@@ -1,0 +1,26 @@
+.result-card {
+    border: 1px solid #f1f1f1;
+    font-size: 14px;
+    border-radius: 3px;
+    .result-card__img-box {
+        max-height: 170px;
+        overflow: hidden;
+        .result-card__img {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .result-card__profile-button {
+        margin-top: 30px;
+        padding: 10px 50px;
+        background-color: var(--secondary-color);
+        color: #fff;
+        text-align: center;
+        border: none;
+    }
+
+    .result-card__details {
+        padding: 20px;
+    }
+}

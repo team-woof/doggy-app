@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import SearchContainer from '../Containers/SearchContainer';
 
 import '../../static/styles/components/results.scss';
+import ResultsContainer from '../Containers/ResultsContainer';
 
 class SearchRoute extends React.Component {
     render() {
@@ -12,6 +13,7 @@ class SearchRoute extends React.Component {
                     <Header />
                     <SearchContainer />
                 </div>
+                <ResultsContainer />
             </div>
         );
     }

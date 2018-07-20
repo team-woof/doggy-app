@@ -41,14 +41,18 @@ function dogs(_dogList) {
       return breeds;
     },
 
-    filterByQuery(breedToFilter, locationToFilter) {
-      return Object.values(dogsList)
-        .filter(dog => {
-          return dog.breed === breedToFilter;
-        })
-        .filter(dog => {
-          return dog.location === locationToFilter;
-        });
+    filterByQuery(breedToFilter = '', locationToFilter = '') {
+      const result = Object.values(dogsList)
+  
+        .filter(
+          dog => (breedToFilter === '' ? true : dog.breed === breedToFilter)
+        )
+      
+        .filter(
+          dog =>
+            locationToFilter === '' ? true : dog.location === locationToFilter
+        );
+      return result.length >= 1 ? result : [{ error: 'who let the dogs out?' }];
     }
   };
 }

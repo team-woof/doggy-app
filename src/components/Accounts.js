@@ -7,7 +7,9 @@ export class Accounts extends Component {
     super(props);
     this.state = {
       loggedIn: false,
-      username: ""
+      username: "",
+      error: false,
+      errorMessage: { message: "" }
     };
   }
   authWithServer({ username, password }) {
@@ -20,8 +22,14 @@ export class Accounts extends Component {
       body: JSON.stringify({ username, password })
     })
       .then(resp => {
-        if (resp.status == 200) {
+        if (resp.status === 200) {
           return resp.json();
+        }
+        if (resp.status === 401) {
+          return this.setState({ error: true, errorMessage: resp.text() });
+        }
+        if (resp.status === 400) {
+          return this.setState({ error: true, errorMessage: resp.text() });
         } else {
           return resp.text();
         }
@@ -29,10 +37,10 @@ export class Accounts extends Component {
       .then(data => {
         if (data.access_token) {
           console.log(`Access Token: ${data.access_token}`);
-          this.setState({ loggedIn: true, username: username });
+          this.setState({ loggedIn: true, username: username, error: false });
         }
       })
-      .then(data => console.log(data));
+      .catch(errorMessage => this.setState({ error: true, errorMessage }));
   }
 
   handelSumbit(event) {
@@ -40,7 +48,9 @@ export class Accounts extends Component {
 
     const username = event.target[0].value;
     const password = event.target[1].value;
-    console.log("wof", { username, password });
+
+    if (username !== "" && password !== "")
+      console.log("sending to server", { username, password });
     this.authWithServer({ username, password });
   }
   render() {
@@ -67,20 +77,29 @@ export class Accounts extends Component {
               className="login-form"
               onSubmit={event => this.handelSumbit(event)}
             >
-              <input type="text" placeholder="username" />
               <input
-                type="current-password"
-                ref="currentPassword"
+                type="text"
+                placeholder="username"
+                autoComplete="username"
+              />
+              <input
+                type="password"
+                autoComplete="current-password"
                 placeholder="current-password"
               />
               <button type="submit">login</button>
+              {this.state.error ? (
+                <p className="message" style={{ color: "red" }}>
+                  Woof, {this.state.errorMessage.message}{" "}
+                </p>
+              ) : null}
               {!this.state.loggedIn ? (
                 <p className="message">
                   Not registered? <a href="#">Create an account</a>
                 </p>
               ) : (
-                <p className="message">
-                  You are now loged in as {this.state.username}
+                <p className="message" style={{ color: "black" }}>
+                  You are now loged in as {this.state.username}!!
                 </p>
               )}
             </form>

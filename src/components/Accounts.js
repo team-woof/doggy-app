@@ -6,6 +6,12 @@ export class Accounts extends Component {
   render() {
     return (
       <div className="Accounts">
+        <div className="video-container">
+          <div className="video__overlay"></div>
+          <video className="video" autoPlay muted loop>
+            <source src="../../static/videos/dog02.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="login-page">
           <div className="form">
             <form className="register-form">

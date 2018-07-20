@@ -29,4 +29,9 @@
     border: none;
     background-color: var(--secondary-color);
     color: #fff;
+
+  &:hover {
+      cursor: pointer;
+    opacity: .8;
+  }
 }

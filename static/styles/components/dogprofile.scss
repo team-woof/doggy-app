@@ -5,6 +5,9 @@
 
   border: 2px solid;
   border-radius: 5px;
+  width: 800px;
+  max-width: 100%;
+  margin: 40px auto;
 }
 
 .Dogprofile__img {
@@ -13,6 +16,22 @@
 }
 
 .Dogprofile__details {
-  padding: 50px 30px 0px;
-  font-size: 3vh;
+  padding: 50px 30px;
+  // font-size: 3vh;
+}
+
+.dogprofile__email-button {
+  margin: 30px 0 0;
+  padding: 10px 50px;
+  border: none;
+  background-color: var(--secondary-color);
+  color: #fff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+
+  &:hover {
+    opacity: .8;
+  }
 }

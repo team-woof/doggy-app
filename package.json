@@ -50,5 +50,8 @@
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0"
+  },
+  "engines": {
+    "node": "10.3.0"
   }
 }

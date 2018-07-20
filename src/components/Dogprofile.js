@@ -36,7 +36,7 @@ export class Dogprofile extends React.Component {
                             <h3>Hobbies</h3>
                             <ul>
                               {result.hobbies.map(hobby => {
-                                <li>{hobby}</li>;
+                                return <li>{hobby}</li>;
                               })}
                             </ul>
                           </div>

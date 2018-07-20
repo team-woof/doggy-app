@@ -35,7 +35,17 @@ app.get('/api/query', function (req, res) {
 //r http://127.0.0.1:8080/api/breedlocation?breed=Labrador&location=london
 app.get('/api/breedlocation', function (req, res) {
   const { breed, location } = req.query;
-  res.json(filterByQuery(breed, location));
+  if (breed !== "" && location !== "" && breed !== "All" && breed !== "All") {
+    res.json(filterByQuery(breed, location));
+  } else if (breed !== "" && breed !== "All") {
+    res.json(filterBreed(breed))
+  } else if (location !== "" && breed !== "All") {
+    res.json(filterLocation(location))
+  } else {
+    const allDogs = getDogs();
+    const dogsArray = Object.keys(allDogs).map(item => allDogs[item]);
+    res.json(dogsArray)
+  }
 });
 
 app.get('/api/locations', function (req, res) {

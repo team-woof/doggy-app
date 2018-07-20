@@ -2,7 +2,6 @@ import React from 'react';
 import '../../static/styles/components/search.scss';
 import { Link, Redirect } from 'react-router-dom';
 
-
 import { fetchDefaultsAction } from '../actions/actions';
 
 class Search extends React.Component {
@@ -27,10 +26,9 @@ class Search extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    if (this.state.breed === "" && this.state.location === "") {
-      console.log("whoop");
-      return;
-    };
+    if (this.state.breed === '' && this.state.location === '') {
+      console.log('whoop');
+    }
     this.props.onSubmit(this.state.breed, this.state.location);
     this.setRedirect();
   }
@@ -50,22 +48,23 @@ class Search extends React.Component {
   setRedirect() {
     this.setState({
       redirect: true
-    })
+    });
   }
   renderRedirect() {
     if (this.state.redirect) {
-      return <Redirect to='/search-results' />
+      return <Redirect to="/search-results" />;
     }
   }
 
-
   render() {
-
     return (
       <div className="search__container">
         {this.renderRedirect()}
         <div className="search">
-          <form className="search__form" onSubmit={this.onSubmit}>
+          <form
+            className="search__form"
+            onSubmit={event => this.onSubmit(event)}
+          >
             <div className="custom-select">
               <select
                 className="search__select"
@@ -73,7 +72,7 @@ class Search extends React.Component {
                 onChange={event => this.updateBreed(event)}
               >
                 <option disabled>Select Breed</option>
-                <option>All</option>
+                <option value="">All</option>
                 {Object.entries(this.props.storeData.breeds).map(
                   ([breed, index]) => <option key={breed}>{breed}</option>
                 )}
@@ -86,7 +85,7 @@ class Search extends React.Component {
                 onChange={event => this.updateLocation(event)}
               >
                 <option disabled>Select Location</option>
-                <option>All</option>
+                <option value="">All</option>
                 {Object.entries(this.props.storeData.location).map(
                   ([location, index]) => (
                     <option key={location}>{location}</option>

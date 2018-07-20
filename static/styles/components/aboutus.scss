@@ -3,8 +3,22 @@
   z-index: 1;
   background: #ffffff;
   max-width: 500px;
-  margin: 0 auto 100px;
-  padding: 45px;
+  margin: 0 auto;
+  padding: 35px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.aboutus-wrapper {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8dc26f);
+  background: -moz-linear-gradient(right, #76b852, #8dc26f);
+  background: -o-linear-gradient(right, #76b852, #8dc26f);
+  background: linear-gradient(to left, #76b852, #8dc26f);
+  height: 100vh;
+}
+
+.about-us__img {
+  width: 100%;
+  max-width: 100%;
 }

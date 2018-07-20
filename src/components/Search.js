@@ -2,7 +2,6 @@ import React from 'react';
 import '../../static/styles/components/search.scss';
 import { Link, Redirect } from 'react-router-dom';
 
-
 import { fetchDefaultsAction } from '../actions/actions';
 
 class Search extends React.Component {
@@ -27,10 +26,10 @@ class Search extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    if (this.state.breed === "" && this.state.location === "") {
-      console.log("whoop");
+    if (this.state.breed === '' && this.state.location === '') {
+      console.log('whoop');
       return;
-    };
+    }
     this.props.onSubmit(this.state.breed, this.state.location);
     this.setRedirect();
   }
@@ -50,22 +49,20 @@ class Search extends React.Component {
   setRedirect() {
     this.setState({
       redirect: true
-    })
+    });
   }
   renderRedirect() {
     if (this.state.redirect) {
-      return <Redirect to='/search-results' />
+      return <Redirect to="/search-results" />;
     }
   }
 
-
   render() {
-
     return (
       <div className="search__container">
         {this.renderRedirect()}
         <div className="search">
-          <form className="search__form" onSubmit={this.onSubmit}>
+          <form className="search__form" onSubmit={() => this.onSubmit()}>
             <div className="custom-select">
               <select
                 className="search__select"

@@ -1,0 +1,18 @@
+.Dogprofile__information {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 20px;
+
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.Dogprofile__img {
+  height: 100%;
+  width: 100%;
+}
+
+.Dogprofile__details {
+  padding: 50px 30px 0px;
+  font-size: 3vh;
+}

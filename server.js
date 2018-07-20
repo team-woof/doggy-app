@@ -95,6 +95,7 @@ app.post("/login", (req, res) => {
   res.status(200).send(`you have login as ${username}`);
 });
 
-app.listen(8080, function() {
+const port = process.env.PORT || 8080;
+app.listen(port, function() {
   console.log("Listening on port 8080");
 });

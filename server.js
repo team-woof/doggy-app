@@ -1,5 +1,5 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 const {
@@ -9,89 +9,53 @@ const {
   getBreeds,
   filterByQuery,
   filterLocation
-} = require("./database/database");
+} = require('./database/database');
 
 app.use(bodyParser.json());
-app.use("/static", express.static(__dirname + "/static"));
+app.use('/static', express.static(__dirname + '/static'));
 
-
-app.get('/api/dogs', function (req, res) {
+app.get('/api/dogs', function(req, res) {
   if (getDogs()) {
     res.json(getDogs());
   } else {
-    res.status(404).json({ error: "No dogs found" });
+    res.status(404).json({ error: 'No dogs found' });
   }
 });
 
 //http://127.0.0.1:8080/api/query?breed=Labrador
-app.get('/api/query', function (req, res) {
+app.get('/api/query', function(req, res) {
   if (req.query.breed) {
     res.json(filterBreed(req.query.breed));
   } else {
-    res.status(404).json({ error: "No breed found" });
+    res.status(404).json({ error: 'No breed found' });
   }
 });
 
 //r http://127.0.0.1:8080/api/breedlocation?breed=Labrador&location=london
-app.get('/api/breedlocation', function (req, res) {
+app.get('/api/breedlocation', function(req, res) {
   const { breed, location } = req.query;
-  const allDogs = getDogs();
-
-  if (breed !== "" && location !== "" && breed !== "All" && breed !== "All") {
-    res.json(filterByQuery(breed, location));
-  }
-  else if (breed !== "" && breed !== "All") {
-    console.log('oh shit')
-    res.json(filterBreed(breed))
-  }
-  else if (location !== "" && breed !== "All") {
-    res.json(filterLocation(location))
-  }
-  else if (breed !== "" && location === "All") {
-    // const filteredBreeds = [];
-    // const allLocationByBreed = Object.keys(allDogs).map(item => {
-    //   console.log("breed", breed);
-    //   if (allDogs[item].breed === breed) {
-    //     console.log("allDogs[item]", allDogs[item]);
-    //     filteredBreeds.push(allDogs[item])
-    //   }
-    // });
-    // res.json(filteredBreeds);
-  }
-  else if (location !== "" && breed === "All") {
-    const filteredLocations = [];
-    const allBreedsByLocation = Object.keys(allDogs).map(item => {
-      if (allDogs[item].location === location) {
-        filteredLocations.push(allDogs[item])
-      }
-    });
-    res.json(filteredLocations);
-  }
-  else {
-    const dogsArray = Object.keys(allDogs).map(item => allDogs[item]);
-    res.json(dogsArray)
-  }
+  res.json(filterByQuery(breed, location));
 });
 
-app.get('/api/locations', function (req, res) {
+app.get('/api/locations', function(req, res) {
   if (getLocations()) {
     res.json(getLocations());
   } else {
-    res.status(404).json({ error: "No breed found" });
+    res.status(404).json({ error: 'No breed found' });
   }
 });
 
-app.get('/api/getresultlist', function (req, res) {
+app.get('/api/getresultlist', function(req, res) {
   res.json({
     location: getLocations(),
     breeds: getBreeds()
   });
 });
 
-app.get('*', function (req, res) {
+app.get('*', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.listen(8080, function () {
+app.listen(8080, function() {
   console.log('Listening on port 8080');
 });

@@ -35,14 +35,39 @@ app.get('/api/query', function (req, res) {
 //r http://127.0.0.1:8080/api/breedlocation?breed=Labrador&location=london
 app.get('/api/breedlocation', function (req, res) {
   const { breed, location } = req.query;
+  const allDogs = getDogs();
+
   if (breed !== "" && location !== "" && breed !== "All" && breed !== "All") {
     res.json(filterByQuery(breed, location));
-  } else if (breed !== "" && breed !== "All") {
+  }
+  else if (breed !== "" && breed !== "All") {
+    console.log('oh shit')
     res.json(filterBreed(breed))
-  } else if (location !== "" && breed !== "All") {
+  }
+  else if (location !== "" && breed !== "All") {
     res.json(filterLocation(location))
-  } else {
-    const allDogs = getDogs();
+  }
+  else if (breed !== "" && location === "All") {
+    // const filteredBreeds = [];
+    // const allLocationByBreed = Object.keys(allDogs).map(item => {
+    //   console.log("breed", breed);
+    //   if (allDogs[item].breed === breed) {
+    //     console.log("allDogs[item]", allDogs[item]);
+    //     filteredBreeds.push(allDogs[item])
+    //   }
+    // });
+    // res.json(filteredBreeds);
+  }
+  else if (location !== "" && breed === "All") {
+    const filteredLocations = [];
+    const allBreedsByLocation = Object.keys(allDogs).map(item => {
+      if (allDogs[item].location === location) {
+        filteredLocations.push(allDogs[item])
+      }
+    });
+    res.json(filteredLocations);
+  }
+  else {
     const dogsArray = Object.keys(allDogs).map(item => allDogs[item]);
     res.json(dogsArray)
   }

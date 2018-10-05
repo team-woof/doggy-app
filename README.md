@@ -10,9 +10,8 @@
 - Express
 
 ## Web Application for dog owners to meet each other.
----
+
 Demo app // http://lit-beyond-75826.herokuapp.com
----
 
 <img  width ="600px" src="./static/img/screenshots/Screenshot1.png" alt="screenshot1"/>
 <img  width ="600px" src="./static/img/screenshots/Screenshot2.png" alt="screenshot2"/>
@@ -29,7 +28,7 @@ In command line:
 - in separate window `npm run server`
 - go to : http://localhost:8080/
 
---
+---
 
 ### Contribution guide:
 

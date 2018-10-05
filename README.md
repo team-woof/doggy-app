@@ -18,15 +18,13 @@
 
 ---
 
-## Constructor Wars App is available soon as Rafal is back from Mexico.
-
 ### To start the frontend:- `npm run start`
 
 ### To start the backend:- `npm run dev:w`
 
 --
 
-## Contribution guide:
+### Contribution guide:
 
 swap to master
 then git pull

@@ -10,8 +10,8 @@
 - Express
 
 ## Web Application for dog owners to meet each other.
-
-Demo app // lit-beyond-75826.herokuapp.com
+---
+Demo app // http://lit-beyond-75826.herokuapp.com
 ---
 
 <img  width ="600px" src="./static/img/screenshots/Screenshot1.png" alt="screenshot1"/>

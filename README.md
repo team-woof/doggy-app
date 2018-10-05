@@ -32,9 +32,9 @@ In command line:
 ### Contribution guide:
 
 - swap to master
-- then git pull
-- thenn swap to working branch
-- then git merge origin master
-- then see if there are any conflicts and fix them
-- then push to git push --set-upstream origin......
-- then look on github and to a pull request
+- git pull
+- swap to working branch
+- git merge origin master
+- see if there are any conflicts and fix them
+- push to git push --set-upstream origin......
+- look on github and to a pull request

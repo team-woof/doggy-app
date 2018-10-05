@@ -18,18 +18,23 @@
 
 ---
 
-### To start the frontend:- `npm run start`
+## To run locally 
 
-### To start the backend:- `npm run dev:w`
+In command line:
+
+- `npm install`
+- `npm run dev`
+- in separate window `npm run server`
+- go to : http://localhost:8080/
 
 --
 
 ### Contribution guide:
 
-swap to master
-then git pull
-thenn swap to working branch
-then git merge origin master
-then see if there are any conflicts and fix them
-then push to git push --set-upstream origin......
-then look on github and to a pull request
+- swap to master
+- then git pull
+- thenn swap to working branch
+- then git merge origin master
+- then see if there are any conflicts and fix them
+- then push to git push --set-upstream origin......
+- then look on github and to a pull request
